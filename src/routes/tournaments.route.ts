@@ -5,6 +5,7 @@ import { TournamentController } from '../controllers/tournament.controller';
 const router = Router();
 const c = Container.get(TournamentController);
 
+router.get('/', c.list);
 router.post('/', c.start);
 router.post('/:id/play', c.play);
 router.get('/:id', c.get);

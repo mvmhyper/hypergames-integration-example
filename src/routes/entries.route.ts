@@ -6,7 +6,6 @@ import { webhookAuth } from '../middleware/webhook-auth';
 const router = Router();
 const c = Container.get(EntryController);
 
-router.post('/', c.create);
 router.post('/score', webhookAuth, c.setScore);
 
 export default router;

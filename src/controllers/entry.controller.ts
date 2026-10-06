@@ -6,10 +6,6 @@ import { EntryService } from '../services/entry.service';
 export class EntryController {
   constructor(private entries: EntryService) {}
 
-  create = async (req: Request, res: Response): Promise<void> => {
-    res.status(201).json(await this.entries.create(req.body.tournament_id, req.body.user_id));
-  };
-
   setScore = async (req: Request, res: Response): Promise<void> => {
     res.json(await this.entries.setScore(req.body));
   };

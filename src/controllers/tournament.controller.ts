@@ -14,6 +14,10 @@ export class TournamentController {
     res.status(201).json(await this.tournaments.play(req.params.id, req.body.username));
   };
 
+  list = async (req: Request, res: Response): Promise<void> => {
+    res.json(await this.tournaments.list(Number(req.query.page) || 1, Number(req.query.limit) || 20));
+  };
+
   get = async (req: Request, res: Response): Promise<void> => {
     res.json(await this.tournaments.get(req.params.id));
   };

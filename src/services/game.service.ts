@@ -7,6 +7,10 @@ import { fail } from '../http-error';
 export class GameService {
   private repo = AppDataSource.getRepository(Game);
 
+  async list(): Promise<Game[]> {
+    return this.repo.find();
+  }
+
   async create(data: Partial<Game>): Promise<Game> {
     if (!data.slug || !data.name || data.time_limit == null || !data.url) fail(400, 'slug, name, time_limit and url are required');
     if (await this.repo.findOneBy({ slug: data.slug! })) fail(409, 'slug is taken');

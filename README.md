@@ -40,9 +40,10 @@ nodemon watches `src/` with polling for reliable reloads on mounts.
 
 - `GET /health`
 - `POST /api/users` — `{username}`
+- `GET /api/games`
 - `POST /api/games` — `{slug, name, time_limit, url}`
 - `POST /api/tournaments` — `{name, game_slug, type: PVP|MULTI, participant_limit}`
-- `POST /api/tournaments/:id/play` — `{username}`
-- `GET /api/tournaments/:id` — game, details, entries
-- `POST /api/entries` — `{tournament_id, user_id}`
+- `POST /api/tournaments/:id/play` — `{username}`, returns `{playUrl}`
+- `GET /api/tournaments?page=1&limit=20`
+- `GET /api/tournaments/:id` — summary with entries and positions
 - `POST /api/entries/score` — game score payload, `Authorization: Bearer GS_WEBHOOK_KEY`
