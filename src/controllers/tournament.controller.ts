@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Service } from 'typedi';
-import { TournamentService } from '../services/TournamentService';
+import { TournamentService } from '../services/tournament.service';
 
 @Service()
 export class TournamentController {
@@ -11,10 +11,10 @@ export class TournamentController {
   };
 
   play = async (req: Request, res: Response): Promise<void> => {
-    res.status(201).json(await this.tournaments.play(Number(req.params.id), req.body.username));
+    res.status(201).json(await this.tournaments.play(req.params.id, req.body.username));
   };
 
   get = async (req: Request, res: Response): Promise<void> => {
-    res.json(await this.tournaments.get(Number(req.params.id)));
+    res.json(await this.tournaments.get(req.params.id));
   };
 }

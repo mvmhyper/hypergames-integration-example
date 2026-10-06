@@ -1,12 +1,12 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Unique } from 'typeorm';
-import { Tournament } from './Tournament';
-import { User } from './User';
+import { Tournament } from './tournament.entities';
+import { User } from './user.entities';
 
 @Entity('entries')
 @Unique(['tournament', 'user'])
 export class Entry {
-  @PrimaryGeneratedColumn()
-  id!: number;
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @ManyToOne(() => Tournament, (t) => t.entries, { nullable: false, onDelete: 'CASCADE' })
   tournament!: Tournament;

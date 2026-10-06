@@ -1,10 +1,10 @@
 import { Service } from 'typedi';
 import { AppDataSource } from '../data-source';
-import { Game } from '../entities/Game';
-import { Tournament, TournamentType } from '../entities/Tournament';
-import { User } from '../entities/User';
-import { EntryService } from './EntryService';
-import { Entry } from '../entities/Entry';
+import { Game } from '../entities/game.entities';
+import { Tournament, TournamentType } from '../entities/tournament.entities';
+import { User } from '../entities/user.entities';
+import { EntryService } from './entry.service';
+import { Entry } from '../entities/entry.entities';
 import { fail } from '../http-error';
 
 @Service()
@@ -27,14 +27,14 @@ export class TournamentService {
     );
   }
 
-  async play(id: number, username: string): Promise<Entry> {
+  async play(id: string, username: string): Promise<Entry> {
     if (!username) fail(400, 'username is required');
     const user = await this.users.findOneBy({ username });
     if (!user) fail(404, 'user not found');
     return this.entries.create(id, user!.id);
   }
 
-  async get(id: number): Promise<Tournament> {
+  async get(id: string): Promise<Tournament> {
     const tournament = await this.tournaments.findOne({
       where: { id },
       relations: { game: true, entries: { user: true } },

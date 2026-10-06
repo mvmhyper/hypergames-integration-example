@@ -3,9 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import healthRouter from './routes/health';
+import healthRouter from './routes/health.route';
 import apiRouter from './routes';
-import { notFoundHandler, errorHandler } from './middleware/errorHandler';
+import { notFoundHandler, errorHandler } from './middleware/error-handler';
 
 export function createApp(): Express {
   const app = express();

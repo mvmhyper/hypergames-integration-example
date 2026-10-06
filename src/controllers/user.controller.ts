@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Service } from 'typedi';
-import { UserService } from '../services/UserService';
+import { UserService } from '../services/user.service';
 
 @Service()
 export class UserController {

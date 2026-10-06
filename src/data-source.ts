@@ -1,11 +1,8 @@
-import { DataSource, useContainer } from 'typeorm';
-import { Container } from 'typedi';
-import { User } from './entities/User';
-import { Game } from './entities/Game';
-import { Tournament } from './entities/Tournament';
-import { Entry } from './entities/Entry';
-
-useContainer(Container);
+import { DataSource } from 'typeorm';
+import { User } from './entities/user.entities';
+import { Game } from './entities/game.entities';
+import { Tournament } from './entities/tournament.entities';
+import { Entry } from './entities/entry.entities';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',

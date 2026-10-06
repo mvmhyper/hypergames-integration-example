@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Service } from 'typedi';
-import { GameService } from '../services/GameService';
+import { GameService } from '../services/game.service';
 
 @Service()
 export class GameController {

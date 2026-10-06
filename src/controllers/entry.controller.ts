@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Service } from 'typedi';
-import { EntryService } from '../services/EntryService';
+import { EntryService } from '../services/entry.service';
 
 @Service()
 export class EntryController {
@@ -11,6 +11,6 @@ export class EntryController {
   };
 
   setScore = async (req: Request, res: Response): Promise<void> => {
-    res.json(await this.entries.setScore(Number(req.params.id), req.body.score));
+    res.json(await this.entries.setScore(req.params.id, req.body.score));
   };
 }

@@ -1,8 +1,8 @@
 import { Service } from 'typedi';
 import { AppDataSource } from '../data-source';
-import { Entry } from '../entities/Entry';
-import { Tournament } from '../entities/Tournament';
-import { User } from '../entities/User';
+import { Entry } from '../entities/entry.entities';
+import { Tournament } from '../entities/tournament.entities';
+import { User } from '../entities/user.entities';
 import { fail } from '../http-error';
 
 @Service()
@@ -11,7 +11,7 @@ export class EntryService {
   private tournaments = AppDataSource.getRepository(Tournament);
   private users = AppDataSource.getRepository(User);
 
-  async create(tournamentId: number, userId: number): Promise<Entry> {
+  async create(tournamentId: string, userId: string): Promise<Entry> {
     const tournament = await this.tournaments.findOneBy({ id: tournamentId });
     if (!tournament) fail(404, 'tournament not found');
     const user = await this.users.findOneBy({ id: userId });
@@ -25,7 +25,7 @@ export class EntryService {
     return this.entries.save(this.entries.create({ tournament: tournament!, user: user! }));
   }
 
-  async setScore(id: number, score: number): Promise<Entry> {
+  async setScore(id: string, score: number): Promise<Entry> {
     if (score == null) fail(400, 'score is required');
     const entry = await this.entries.findOneBy({ id });
     if (!entry) fail(404, 'entry not found');

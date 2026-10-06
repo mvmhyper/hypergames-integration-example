@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Container } from 'typedi';
-import { TournamentController } from '../controllers/TournamentController';
+import { TournamentController } from '../controllers/tournament.controller';
 
 const router = Router();
 const c = Container.get(TournamentController);

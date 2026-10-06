@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { Container } from 'typedi';
-import { UserController } from '../controllers/UserController';
+import { EntryController } from '../controllers/entry.controller';
 
 const router = Router();
-const c = Container.get(UserController);
+const c = Container.get(EntryController);
 
 router.post('/', c.create);
+router.post('/:id/score', c.setScore);
 
 export default router;

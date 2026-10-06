@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
-import usersRouter from './users';
-import gamesRouter from './games';
-import tournamentsRouter from './tournaments';
-import entriesRouter from './entries';
+import usersRouter from './users.route';
+import gamesRouter from './games.route';
+import tournamentsRouter from './tournaments.route';
+import entriesRouter from './entries.route';
 
 const router = Router();
 

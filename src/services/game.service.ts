@@ -1,6 +1,6 @@
 import { Service } from 'typedi';
 import { AppDataSource } from '../data-source';
-import { Game } from '../entities/Game';
+import { Game } from '../entities/game.entities';
 import { fail } from '../http-error';
 
 @Service()

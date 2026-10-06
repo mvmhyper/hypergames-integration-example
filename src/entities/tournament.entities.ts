@@ -1,13 +1,13 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Game } from './Game';
-import { Entry } from './Entry';
+import { Game } from './game.entities';
+import { Entry } from './entry.entities';
 
 export type TournamentType = 'PVP' | 'MULTI';
 
-@Entity('tournament')
+@Entity('tournaments')
 export class Tournament {
-  @PrimaryGeneratedColumn()
-  id!: number;
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @Column()
   name!: string;
