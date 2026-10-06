@@ -19,6 +19,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-root}
       - DB_NAME=${DB_NAME:-testapi}
       - APP_URL=http://localhost:3000
+      - GS_WEBHOOK_KEY=${GS_WEBHOOK_KEY:-}
     command: npm run dev
     depends_on:
       db:

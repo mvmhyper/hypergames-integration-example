@@ -45,4 +45,4 @@ nodemon watches `src/` with polling for reliable reloads on mounts.
 - `POST /api/tournaments/:id/play` — `{username}`
 - `GET /api/tournaments/:id` — game, details, entries
 - `POST /api/entries` — `{tournament_id, user_id}`
-- `POST /api/entries/score` — game score payload
+- `POST /api/entries/score` — game score payload, `Authorization: Bearer GS_WEBHOOK_KEY`

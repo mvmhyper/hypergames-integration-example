@@ -193,6 +193,12 @@ paths:
   /api/entries/score:
     post:
       summary: Submit entry score
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -206,6 +212,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Entry'
+        '401':
+          $ref: '#/components/responses/Error'
         '400':
           $ref: '#/components/responses/Error'
         '404':
