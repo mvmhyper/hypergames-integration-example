@@ -1,9 +1,9 @@
 openapi: 3.0.3
 info:
-  title: test-api
+  title: Hyper Games Integration Example
   version: 1.0.0
 servers:
-  - url: http://localhost:3000
+  - url: https://hypergames-integration-example.dev.mvm-tech.xyz
 paths:
   /health:
     get:
