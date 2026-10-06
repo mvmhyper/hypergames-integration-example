@@ -11,6 +11,6 @@ export class EntryController {
   };
 
   setScore = async (req: Request, res: Response): Promise<void> => {
-    res.json(await this.entries.setScore(req.params.id, req.body.score));
+    res.json(await this.entries.setScore(req.body));
   };
 }

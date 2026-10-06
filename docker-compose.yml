@@ -18,6 +18,7 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=${DB_PASSWORD:-root}
       - DB_NAME=${DB_NAME:-testapi}
+      - APP_URL=http://localhost:3000
     command: npm run dev
     depends_on:
       db:

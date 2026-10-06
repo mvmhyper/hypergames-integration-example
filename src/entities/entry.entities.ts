@@ -16,4 +16,10 @@ export class Entry {
 
   @Column({ default: 0 })
   score!: number;
+
+  @Column({ default: 0 })
+  time!: number;
+
+  @Column({ default: 0 })
+  level!: number;
 }

@@ -139,7 +139,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Entry'
+                $ref: '#/components/schemas/PlayResult'
         '400':
           $ref: '#/components/responses/Error'
         '404':
@@ -190,21 +190,15 @@ paths:
           $ref: '#/components/responses/Error'
         '409':
           $ref: '#/components/responses/Error'
-  /api/entries/{id}/score:
+  /api/entries/score:
     post:
-      summary: Set entry score
-      parameters:
-        - $ref: '#/components/parameters/Id'
+      summary: Submit entry score
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              required: [score]
-              properties:
-                score:
-                  type: number
+              $ref: '#/components/schemas/ScoreSubmission'
       responses:
         '200':
           description: Updated
@@ -302,3 +296,37 @@ components:
           $ref: '#/components/schemas/User'
         score:
           type: number
+        time:
+          type: number
+        level:
+          type: number
+    PlayResult:
+      type: object
+      properties:
+        entry:
+          $ref: '#/components/schemas/Entry'
+        playUrl:
+          type: string
+    ScoreSubmission:
+      type: object
+      required: [entryId, score]
+      properties:
+        entryId:
+          type: string
+          format: uuid
+        tournamentId:
+          type: string
+          format: uuid
+        gameId:
+          type: string
+          format: uuid
+        score:
+          type: number
+        time:
+          type: number
+        level:
+          type: number
+        pvp:
+          type: boolean
+        isValid:
+          type: boolean
