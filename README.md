@@ -1,6 +1,6 @@
-# test-api
+# Hypergames Integration Example
 
-Skeleton Express API (TypeScript).
+Express API (TypeScript).
 
 ## Getting started
 
@@ -18,32 +18,14 @@ npm run dev
 
 ## Docker
 
-Production image (defaults to the `runner` stage):
-
-```bash
-docker build -t test-api .
-docker run -d --name test-api -p 3000:3000 test-api
-```
-
-Development with hot reload (builds the `development` stage from the
-same Dockerfile, mounts the project, runs nodemon):
+Development with hot reload
 
 ```bash
 docker compose up --build
 ```
 
-The project is mounted at `/app` (`/app/node_modules` is kept as an
-anonymous volume so container-installed deps aren't shadowed), and
-nodemon watches `src/` with polling for reliable reloads on mounts.
+The project is mounted at `/app` and nodemon watches `src/` with polling for reliable reloads on mounts.
 
 ## Endpoints
 
-- `GET /health`
-- `POST /api/users` — `{username}`
-- `GET /api/games`
-- `POST /api/games` — `{slug, name, time_limit, url}`
-- `POST /api/tournaments` — `{name, game_slug, type: PVP|MULTI, participant_limit}`
-- `POST /api/tournaments/:id/play` — `{username}`, returns `{playUrl}`
-- `GET /api/tournaments?page=1&limit=20`
-- `GET /api/tournaments/:id` — summary with entries and positions
-- `POST /api/entries/score` — game score payload, `Authorization: Bearer GS_WEBHOOK_KEY`
+Refer to  `./openapi.yaml` for the documentation of all available endpoints. You can also import it into Bruno or Postman and test it there.
